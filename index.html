@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KAVA</title>
+  <link rel="stylesheet" href="stilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header id="mini-header" aria-label="Cabecera">
+    <details id="menu-hamb">
+      <summary id="hamburger" aria-label="Abrir menú">☰</summary>
+      <nav id="nav" aria-label="Navegación principal">
+        <ul role="list">
+          <li><a href="#app">Inicio</a></li>
+          <li><a href="#novedades">Novedades</a></li>
+          <li><a href="#hombres">Hombres</a></li>
+          <li><a href="#mujeres">Mujeres</a></li>
+          <li><a href="#contacto">Contactanos</a></li>
+        </ul>
+      </nav>
+    </details>
+    <span class="brand">KAVA</span>
+    <form id="buscador-form" role="search" aria-label="Buscar productos" action="#coleccion">
+      <label for="buscador" hidden>Buscar</label>
+      <input id="buscador" name="q" type="search" placeholder="Buscar…" autocomplete="off" />
+    </form>
+  </header>
+  <main id="app"></main>
+
+  <section id="novedades" aria-label="Colección KAVA">
+  <h2>Novedades</h2>
+
+  <section id="grid-productos" aria-live="polite" aria-atomic="true"></section>
+
+  <template id="tpl-tarjeta">
+    <article>
+      <figure>
+        <img src="" alt="">
+        <figcaption>
+          <strong></strong>
+          <small class="tallas"></small>
+          <em></em>
+          <menu class="colores" aria-label="Colores disponibles"></menu>
+
+          <button type="button" data-add>Añadir</button>
+        </figcaption>
+      </figure>
+    </article>
+  </template>
+</section>
+
+  <script src="funciones.js"></script>
+</body>
+</html>
