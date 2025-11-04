@@ -5,10 +5,10 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 
 #mini-header{
   position: fixed; inset-inline:0; top:0; z-index:1200;
-  background: rgba(0,0,0,0.35); color:#fff; backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,.15);
+  background: rgba(24, 24, 24, 0.35); color:#ffffff; backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   min-height: var(--mh);
-  display: grid; grid-template-columns: 64px 1fr 64px; align-items:center;
+  display: grid; grid-template-columns: 64px 1fr 64px; align-items:center;  
   transform: translateY(-100%); transition: transform .35s ease;
 }
 #mini-header.show{ transform: translateY(0) }  /* aparece al bajar */
@@ -20,15 +20,15 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 #menu-hamb{ justify-self:start; margin-left:12px; position:relative }
 #hamburger{
   list-style:none; -webkit-user-select:none; user-select:none;
-  font-size:28px; line-height:1; color:#fff; background:transparent;
+  font-size:28px; line-height:1; color:#5c5b5b; background:transparent;
   border:none; padding:6px 10px; cursor:pointer;
 }
 #hamburger::-webkit-details-marker{ display:none }
 
 #menu-hamb > #nav{
-  position: fixed; left:0; right:0; top:var(--mh);
-  background:rgba(0,0,0,0.35); backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,.18);
+  position: left; left:0; right:0; top:var(--mh);
+  background:rgba(146, 146, 146, 0.747); backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   max-height: calc(100vh - var(--mh)); overflow:auto;
   opacity:0; translate: 0 -8px; pointer-events:none;
   transition: opacity .22s ease, translate .22s ease;
@@ -41,11 +41,11 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
   display:flex; flex-direction:column; align-items:center; gap:14px;
 }
 #menu-hamb #nav a{
-  color:#fff; text-decoration:none; letter-spacing:.12em; font-size:18px;
+  color:#000000; text-decoration:none; letter-spacing:.12em; font-size:18px;
 }
 
 #hamburger:focus-visible, #menu-hamb #nav a:focus-visible{
-  outline:2px solid #fff; outline-offset:2px;
+  outline:2px solid #000000; outline-offset:2px;
 }
 
 .hero{
@@ -58,11 +58,11 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 }
 .hero h1{
   position:relative; font-size:140px; font-weight:600; letter-spacing:.18em;
-  margin:0; color:#fff; text-transform:uppercase; transition:transform .3s ease-out; transform-origin:center;
+  margin:0; color:#ffffff; text-transform:uppercase; transition:transform .3s ease-out; transform-origin:center;
 }
 .hero p{
   position:relative; font-size:32px; font-weight:300; margin-top:20px;
-  letter-spacing:.16em; color:#fff; transition:opacity .3s ease-out;
+  letter-spacing:.16em; color:#ffffff; transition:opacity .3s ease-out;
 }
 @media (max-width:768px){
   .hero h1{ font-size:90px }
@@ -93,7 +93,7 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 #grid-productos article figure{
   margin: 0; border: 1px solid rgba(0,0,0,.12);
   background: #fff; border-radius: 14px; overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.06);
 }
 #grid-productos img{
   width: 100%; aspect-ratio: 4/5; object-fit: cover;
@@ -304,4 +304,32 @@ section[id]{ scroll-margin-top: 100px } /* que el header no tape el título */
 @media (max-width: 480px){
   .ed-grid{ grid-template-columns: 1fr }
   .ed-grid .span-2, .ed-grid .span-2h{ grid-column: span 1; grid-row: span 1 }
+}
+/* Botón Carrito (negro) en el mini-header */
+#carrito-link.cart-link{
+  position: absolute;
+  top: 50%;
+  /* lo ubicamos a la izquierda del buscador sin mover tu layout */
+  right: 12px;
+  transform: translateY(-50%) translateX(calc(-1 * (clamp(160px, 15vw, 320px) + 48px)));
+  z-index: 1350;
+
+  display: inline-flex; align-items: center; justify-content: center;
+  inline-size: 36px; block-size: 36px; border-radius: 999px;
+
+  background: #000;      /* negro */
+  color: #fff;           /* icono blanco para contraste */
+  border: 1px solid rgba(255,255,255,.35);
+  text-decoration: none; font-size: 18px; line-height: 1;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#carrito-link.cart-link:hover{
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  transform: translateY(-50%) translateX(calc(-1 * (clamp(160px, 15vw, 320px) + 48px))) scale(1.05);
+}
+@media (max-width: 420px){
+  /* mantiene la posición relativa al ancho del buscador reducido */
+  #carrito-link.cart-link{
+    transform: translateY(-50%) translateX(calc(-1 * (160px + 48px)));
+  }
 }
