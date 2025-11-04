@@ -1,4 +1,4 @@
-:root { --bg:#ffffff; --mh:64px; }  /* --mh = altura del mini-header */
+:root { --bg:#ffffff; --mh:64px; }  
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:"Cormorant Garamond",serif; height:200vh}
@@ -162,7 +162,7 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  pointer-events: none;  /* no roba clics a los botones laterales */
+  pointer-events: none; 
 }
 #mini-header{
   display: block;            
@@ -200,8 +200,8 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
   #buscador{ inline-size: 160px }
 }
 }
-/* ===== Lookbook editorial (Hombres/Mujeres) ===== */
-section[id]{ scroll-margin-top: 100px } /* que el header no tape el título */
+
+section[id]{ scroll-margin-top: 100px } 
 
 .editorial{
   padding: 80px 20px;
@@ -257,7 +257,6 @@ section[id]{ scroll-margin-top: 100px } /* que el header no tape el título */
 }
 .ed-btn:hover{ background:#111; color:#fff }
 
-/* Collage editorial sin <div>: solo figures en grid */
 .ed-grid{
   display: grid;
   gap: 16px;
