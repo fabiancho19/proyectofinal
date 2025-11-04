@@ -150,9 +150,8 @@ const COLOR_HEX = {
     $name.textContent = prod.nombre;
     $talla.textContent = `Tallas: ${prod.tallas}`;
     $price.textContent = money(prod.precio);
-    if (prod.imagen){ $img.src = prod.imagen; $img.alt = prod.nombre; }
-    else { $img.alt = "imagen no disponible"; }
-
+    $img.src = prod.imagen || 'img/default.jpg';
+    $img.alt = prod.nombre;
 // swatch de colores
     let selectedColor = prod.colores[0] || null;
     prod.colores.forEach((c, idx) => {

@@ -329,8 +329,11 @@ section[id]{ scroll-margin-top: 100px }
   transform: translateY(-50%) translateX(calc(-1 * (clamp(160px, 15vw, 320px) + 48px))) scale(1.05);
 }
 @media (max-width: 420px){
-  /* mantiene la posición relativa al ancho del buscador reducido */
   #carrito-link.cart-link{
     transform: translateY(-50%) translateX(calc(-1 * (160px + 48px)));
   }
+}
+.brand2{
+  position:relative; font-size:140px; font-weight:600; letter-spacing:.18em;
+  margin:0; color:#fff; text-transform:uppercase; transition:transform .3s ease-out; transform-origin:center;
 }
