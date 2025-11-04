@@ -215,6 +215,7 @@ const COLOR_HEX = {
 
   input.addEventListener('input', filtrar);
 })();
+<<<<<<< HEAD
 /* ===================== Carrito (localStorage) ===================== */
 const CART_KEY = 'kava_cart';
 const readCart = () => {
@@ -267,3 +268,12 @@ const writeCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart))
 
   grid.addEventListener('click', clickHandler);
 })();
+=======
+    function aceptarPrivacidad() {
+      document.getElementById('modal-privacidad').classList.add('oculto');
+    }
+
+    function rechazarPrivacidad() {
+      alert('Para continuar usando nuestro sitio, debes aceptar nuestra Política de Privacidad.');
+    }
+>>>>>>> 8a4bd13 (Politica)
