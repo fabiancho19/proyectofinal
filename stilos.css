@@ -69,13 +69,13 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
   .hero p{ font-size:22px }
 }
 
-#coleccion{
+#novedades{
   padding: 80px 20px;
   scroll-margin-top: 80px;
   max-width: 1200px; margin-inline: auto;
   text-align: center;
 }
-#coleccion h2{
+#novedades h2{
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(32px, 5vw, 46px);
   letter-spacing: .12em; font-weight: 600; margin: 0 0 24px;
@@ -179,9 +179,8 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 
 #buscador{
   appearance: none;
-  inline-size: clamp(160px, 28vw, 320px);
-  block-size: 36px;
-  padding: 0 14px 0 38px;   
+  inline-size: clamp(160px, 15vw, 320px);
+  block-size: 36px;  
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.35);
   background: color-mix(in srgb, rgba(255,255,255,.14) 40%, transparent);
@@ -200,4 +199,109 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 @media (max-width: 420px){
   #buscador{ inline-size: 160px }
 }
+}
+/* ===== Lookbook editorial (Hombres/Mujeres) ===== */
+section[id]{ scroll-margin-top: 100px } /* que el header no tape el título */
+
+.editorial{
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin-inline: auto;
+  text-align: center;
+}
+.editorial > h2{
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 5vw, 46px);
+  letter-spacing: .12em;
+  font-weight: 600;
+  margin: 0 0 24px;
+}
+
+/* Hero editorial */
+.ed-hero{
+  margin: 0 0 24px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.ed-hero img{
+  width: 100%;
+  aspect-ratio: 21/9;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter .35s ease, transform .35s ease;
+}
+.ed-hero:hover img{ filter: none; transform: scale(1.03) }
+.ed-hero figcaption{
+  position: absolute; inset: auto 24px 24px 24px;
+  display: inline-flex; gap: 12px; align-items: center;
+}
+.ed-hero strong{
+  font-size: clamp(18px, 2.6vw, 24px);
+  letter-spacing: .14em;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.ed-btn{
+  text-decoration: none;
+  border: 1px solid #111;
+  color:#111;
+  background:#fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  letter-spacing: .04em;
+  transition:.25s;
+}
+.ed-btn:hover{ background:#111; color:#fff }
+
+/* Collage editorial sin <div>: solo figures en grid */
+.ed-grid{
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.ed-grid figure{
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.ed-grid img{
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter .3s ease, transform .3s ease;
+}
+.ed-grid figure:hover img{ filter: none; transform: scale(1.02) }
+
+
+.ed-grid figcaption{
+  position: absolute; left: 10px; bottom: 10px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  backdrop-filter: blur(3px);
+}
+
+.ed-grid .span-2{ grid-column: span 2 }
+.ed-grid .span-2h{ grid-row: span 2 }
+
+@media (max-width: 1100px){
+  .ed-grid{ grid-template-columns: repeat(4, 1fr) }
+}
+@media (max-width: 760px){
+  .ed-grid{ grid-template-columns: repeat(2, 1fr) }
+  .ed-hero img{ aspect-ratio: 16/9 }
+}
+@media (max-width: 480px){
+  .ed-grid{ grid-template-columns: 1fr }
+  .ed-grid .span-2, .ed-grid .span-2h{ grid-column: span 1; grid-row: span 1 }
 }

@@ -191,7 +191,7 @@ const COLOR_HEX = {
   // Ir a la sección colección al enviar (enter)
   form.addEventListener('submit', (e)=>{
     e.preventDefault();
-    const target = document.getElementById('coleccion');
+    const target = document.getElementById('novedades');
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
