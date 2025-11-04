@@ -271,10 +271,10 @@ section[id]{ scroll-margin-top: 100px }
 }
 .ed-grid img{
   width: 100%;
-  aspect-ratio: 4/5;
+  height: 420px;
   object-fit: cover;
-  filter: grayscale(100%);
-  transition: filter .3s ease, transform .3s ease;
+  object-position: center;
+  border-radius: 12px;
 }
 .ed-grid figure:hover img{ filter: none; transform: scale(1.02) }
 
