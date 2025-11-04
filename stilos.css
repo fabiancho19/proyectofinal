@@ -26,7 +26,7 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 #hamburger::-webkit-details-marker{ display:none }
 
 #menu-hamb > #nav{
-  position: fixed; left:0; right:0; top:var(--mh);
+  position: left; left:0; right:0; top:var(--mh);
   background:rgba(0,0,0,0.35); backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255,255,255,.18);
   max-height: calc(100vh - var(--mh)); overflow:auto;
@@ -276,7 +276,9 @@ section[id]{ scroll-margin-top: 100px }
   object-position: center;
   border-radius: 12px;
 }
-.ed-grid figure:hover img{ filter: none; transform: scale(1.02) }
+.ed-grid figure:hover img{ filter: none; transform: scale(1.02) 
+
+}
 
 
 .ed-grid figcaption{
@@ -303,4 +305,32 @@ section[id]{ scroll-margin-top: 100px }
 @media (max-width: 480px){
   .ed-grid{ grid-template-columns: 1fr }
   .ed-grid .span-2, .ed-grid .span-2h{ grid-column: span 1; grid-row: span 1 }
+}
+/* Botón Carrito (negro) en el mini-header */
+#carrito-link.cart-link{
+  position: absolute;
+  top: 50%;
+  /* lo ubicamos a la izquierda del buscador sin mover tu layout */
+  right: 12px;
+  transform: translateY(-50%) translateX(calc(-1 * (clamp(160px, 15vw, 320px) + 48px)));
+  z-index: 1350;
+
+  display: inline-flex; align-items: center; justify-content: center;
+  inline-size: 36px; block-size: 36px; border-radius: 999px;
+
+  background: #000;      /* negro */
+  color: #fff;           /* icono blanco para contraste */
+  border: 1px solid rgba(255,255,255,.35);
+  text-decoration: none; font-size: 18px; line-height: 1;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+#carrito-link.cart-link:hover{
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  transform: translateY(-50%) translateX(calc(-1 * (clamp(160px, 15vw, 320px) + 48px))) scale(1.05);
+}
+@media (max-width: 420px){
+  /* mantiene la posición relativa al ancho del buscador reducido */
+  #carrito-link.cart-link{
+    transform: translateY(-50%) translateX(calc(-1 * (160px + 48px)));
+  }
 }

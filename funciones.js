@@ -215,3 +215,55 @@ const COLOR_HEX = {
 
   input.addEventListener('input', filtrar);
 })();
+//carrito
+const CART_KEY = 'kava_cart';
+const readCart = () => {
+  try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
+  catch { return []; }
+};
+const writeCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart));
+
+/* Enganche: al crear cada tarjeta, añadimos al carrito el ítem pulsado */
+(function hookAddButtons(){
+  const grid = document.getElementById('grid-productos');
+  if (!grid) return;
+
+  // Observa las tarjetas ya renderizadas y futuras (por si re-renders)
+  const clickHandler = (e) => {
+    const btn = e.target.closest('button[data-add]');
+    if (!btn) return;
+
+    const card = btn.closest('article');
+    if (!card) return;
+
+    const name = card.querySelector('strong')?.textContent || '';
+    const priceText = card.querySelector('em')?.textContent || '';
+    const img = card.querySelector('img')?.getAttribute('src') || '';
+    const baseName = name.split(' — ')[0].trim();      // nombre sin color agregado
+    const colorSel = (name.includes(' — ') ? name.split(' — ')[1].trim() : null) || 'default';
+
+    // Tomamos precio a partir del catálogo renderizado (ya formateado a COP)
+    const precio = (() => {
+      // intenta extraer número del <em> formateado COP
+      const m = priceText.replace(/[^\d]/g,'');
+      return m ? Number(m) : 0;
+    })();
+
+    // id robusto con color
+    const id = (baseName + '|' + colorSel).toLowerCase().replace(/\s+/g,'-');
+
+    const cart = readCart();
+    const ix = cart.findIndex(i => i.id === id);
+    if (ix > -1) cart[ix].qty += 1;
+    else cart.push({ id, nombre: baseName, color: colorSel, precio: precio, qty: 1, imagen: img });
+
+    writeCart(cart);
+
+    // feedback rápido (manteniendo tu animación original si existe)
+    const old = btn.textContent;
+    btn.textContent = 'Añadido ✓';
+    setTimeout(() => { btn.textContent = old; }, 900);
+  };
+
+  grid.addEventListener('click', clickHandler);
+})();
