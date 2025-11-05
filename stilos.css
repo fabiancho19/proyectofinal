@@ -456,7 +456,7 @@ section[id]{ scroll-margin-top: 100px }
     /* Estilos para igualar el menú con el fondo gris - SÓLIDO */
     #menu-hamb[open] #nav,
     #nav {
-      background: rgba(0,0,0,0.35) !important;
+      background: rgba(255, 255, 255, 0.35) !important;
       border: none !important;
       box-shadow: none !important;
       backdrop-filter: none !important;

@@ -238,3 +238,5 @@ const writeCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart))
       `;
       document.querySelector('.btn-rechazar').style.display = 'none';
     }
+const swatches = document.querySelectorAll('.swatches');
+
