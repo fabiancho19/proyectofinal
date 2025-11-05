@@ -8,6 +8,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <section id="modal-privacidad">
+    <article class="modal-box">
+      <header class="modal-header">
+        <h2>Política de Privacidad</h2>
+      </header>
+      <section class="modal-body">
+        <p><strong>Última actualización: 4 de noviembre de 2025</strong></p>
+        
+        <p>En Kava, nos comprometemos a proteger tu privacidad y garantizar la seguridad de tus datos personales.</p>
+
+        <h3>Información que Recopilamos</h3>
+        <ul>
+          <li>Datos de contacto: nombre, correo electrónico, teléfono</li>
+          <li>Datos de envío: dirección postal completa</li>
+          <li>Información de pago: datos de tarjetas (procesados de forma segura)</li>
+          <li>Datos de navegación: IP, navegador, páginas visitadas</li>
+          <li>Cookies para mejorar tu experiencia</li>
+        </ul>
+
+        <h3>Cómo Utilizamos tu Información</h3>
+        <ul>
+          <li>Procesar pedidos y envíos</li>
+          <li>Enviar confirmaciones y actualizaciones</li>
+          <li>Personalizar tu experiencia de compra</li>
+          <li>Enviar ofertas y promociones (puedes darte de baja)</li>
+          <li>Prevenir fraudes y proteger la seguridad</li>
+        </ul>
+
+        <h3>Tus Derechos</h3>
+        <p>Tienes derecho a acceder, rectificar, eliminar y controlar el uso de tus datos personales. Contáctanos en <strong>privacidad@kava.com</strong></p>
+
+        <h3>Seguridad</h3>
+        <p>Implementamos medidas de seguridad técnicas y físicas para proteger tu información, incluyendo cifrado SSL/TLS.</p>
+
+        <p style="margin-top: 20px;">Al hacer clic en "Aceptar", confirmas que has leído y aceptas nuestra Política de Privacidad.</p>
+      </section>
+      <footer class="modal-footer">
+        <button class="btn-modal btn-rechazar" onclick="rechazarPrivacidad()">Rechazar</button>
+        <button class="btn-modal btn-aceptar" onclick="aceptarPrivacidad()">Aceptar</button>
+      </footer>
+    </article>
+  </section>
   <header id="mini-header" aria-label="Cabecera">
     <details id="menu-hamb">
       <summary id="hamburger" aria-label="Abrir menú">☰</summary>
@@ -15,7 +57,7 @@
         <ul role="list">
           <li><a href="#app">Inicio</a></li>
           <li><a href="#novedades">Novedades</a></li>
-          <li><a href="#Registro.html">Iniciar sesion</a></li>
+          <li><a href="Registro.html">Iniciar sesion</a></li>
           <li><a href="#hombres">Hombres</a></li>
           <li><a href="#mujeres">Mujeres</a></li>
           <li><a href="#contacto">Contactanos</a></li>
@@ -109,62 +151,33 @@
     </figure>
   </section>
 </section>
+<section id="novedades" aria-labelledby="titulo-novedades">
+<!-- NOVEDADES FALTA POR COMPLETAR-->
+ <h2 id="titulo-novedades">Novedades</h2>
+  <article class="productos">
+  <hgroup>
+    <h3>Bermuda caqui</h3>
+  </hgroup>
 
-<section id="novedades" aria-label="Colección KAVA"> 
-  <h2>Novedades</h2>
+  <figure>
+    <img src="imagenes/bermudafin.png" alt="" width="300px">
+  </figure>
 
-  <section id="grid-productos" aria-live="polite" aria-atomic="true"></section>
+  <p class="price">$120000 COP</p>
+  <p class="desc"></p>
+  
+  <button class="add-cart"
+    data-id="bermuda-caqui"
+    data-nombre="Bermuda caqui"
+    data-precio="120000"
+    data-imagen="imagenes/bermudafin.png"   
+    data-color="Caqui">
+    Añadir al carrito
+  </button>
+</article>
 
-  <template id="tpl-tarjeta">
-    <article>
-      <figure>
-        <img src="imagenes/crropm.png"alt="">
-        <figcaption>
-          <strong></strong>
-          <small class="tallas"></small>
-          <em></em>
-          <menu class="colores" aria-label="Colores disponibles"></menu>
-
-          <button type="button" data-add>Añadir</button>
-        </figcaption>
-      </figure>
-    </article>
-  </template>
-</section>
 <section id="#contacto"></section>
-<footer style="background-color:#000; color:#fff; text-align:center; padding:60px 20px; font-family:Arial, sans-serif;">
 
-  <h3 style="letter-spacing:2px; font-size:14px; color:#aaa; margin-bottom:20px;">
-    SERVICIOS KAVA
-  </h3>
-
-  <ul style="list-style:none; padding:0; margin:20px 0;">
-    <li style="margin:10px 0;">
-      <a href="" target="_blank" style="color:#fff; text-decoration:none; font-size:14px;">
-        Política de Seguridad
-      </a>
-    </li>
-    <li style="margin:10px 0;">
-      <a href="https://tusitio.com/contacto" target="_blank" style="color:#fff; text-decoration:none; font-size:14px;">
-        Contacto
-      </a>
-    </li>
-    <li style="margin:10px 0;">
-      <a href="" target="_blank" style="color:#fff; text-decoration:none; font-size:14px;">
-        Mapa del Sitio
-      </a>
-    </li>
-  </ul>
-
-  <p style="margin-top:40px; font-size:12px; color:#888;">
-    © 2025 KAVA S.A. – Todos los derechos reservados.
-  </p>
-
-  <h1 class="brand2">
-    KAVA
-  </h1>
-
-</footer>
   <script src="funciones.js"></script>
 </body>
 </html>

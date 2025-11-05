@@ -1,3 +1,43 @@
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.add-cart');
+  if (!btn) return;
+
+  const id = btn.dataset.id;
+  const nombre = btn.dataset.nombre;
+  const precio = Number(btn.dataset.precio);
+  const imagen = btn.dataset.imagen || '';
+  const color = btn.dataset.color || '';
+
+  const cart = readCart();
+  const i = cart.findIndex(p => p.id === id);
+
+  if (i >= 0) cart[i].qty += 1;
+  else cart.push({ id, nombre, precio, qty: 1, imagen, color });
+  function toast(msg){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.style.opacity = "1";
+  el.style.transform = "translateY(0)";
+  setTimeout(() => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+  }, 2200);
+}
+  writeCart(cart);
+const originalText = btn.textContent;
+btn.textContent = "Añadido al carrito ✓";
+btn.style.background = "#1a1a1a"; 
+
+setTimeout(() => {
+  btn.textContent = originalText;
+  btn.style.background = ""; 
+}, 2000);
+
+toast(`${nombre} añadido al carrito `);
+
+
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
 
@@ -47,86 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
   addEventListener('keydown', (e) => { if (e.key === 'Escape') details.open = false; });
 });
 // Precios en COP, tallas y colores según catálogo.
-const PRODUCTS = [
-  {
-    id: "camiseta-basica",
-    nombre: "Camiseta básica",
-    tallas: "S–XL",
-    precio: 49900,
-    colores: ["blanca","negra","gris"],
-    imagen: ""
-  },
-  {
-    id: "camiseta-estampada",
-    nombre: "Camiseta estampada",
-    tallas: "S–XL",
-    precio: 59900,
-    colores: ["blanca","negra","verde"],
-    imagen: ""
-  },
-  {
-    id: "camiseta-oversize-h",
-    nombre: "Camiseta oversize (hombre)",
-    tallas: "M–XL",
-    precio: 64900,
-    colores: ["negra","gris","vino"],
-    imagen: ""
-  },
-  {
-    id: "blusa-elegante",
-    nombre: "Blusa elegante",
-    tallas: "S–L",
-    precio: 74900,
-    colores: ["vino","blanca","negra"],
-    imagen: ""
-  },
-  {
-    id: "buso-clasico",
-    nombre: "Buso clásico (cuello redondo)",
-    tallas: "S–XL",
-    precio: 94900,
-    colores: ["gris","negro","azul-marino"],
-    imagen: "img/buso-clasico.jpg"
-  },
-  {
-    id: "hoodie-clasico",
-    nombre: "Hoodie clásico",
-    tallas: "S–XL",
-    precio: 124900,
-    colores: ["negro","gris","azul"],
-    imagen: "img/hoodie-clasico.jpg"
-  },
-  {
-    id: "jean-clasico-h",
-    nombre: "Jean clásico (hombre)",
-    tallas: "30–38",
-    precio: 124900,
-    colores: ["azul-oscuro"],
-    imagen: "img/jean-clasico-h.jpg"
-  },
-  {
-    id: "bermuda-cargo-h",
-    nombre: "Bermuda cargo (hombre)",
-    tallas: "30–38",
-    precio: 104900,
-    colores: ["caqui"],
-    imagen: "img/bermuda-cargo-h.jpg"
-  }
-];
-
-// Mapeo de colores → hex (para swatches)
-const COLOR_HEX = {
-  "blanca": "#ffffff",
-  "negra": "#111111",
-  "gris": "#808080",
-  "verde": "#2e7d32",
-  "vino": "#7b0323",
-  "azul": "#1f4aa8",
-  "azul-marino": "#001f3f",
-  "azul-oscuro": "#0e2a55",
-  "beige": "#d9c7a0",
-  "caqui": "#b39b62"
-};
 
 (function renderCatalog(){
   const grid = document.getElementById('grid-productos');
@@ -266,3 +226,15 @@ const writeCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart))
 
   grid.addEventListener('click', clickHandler);
 })();
+   function aceptarPrivacidad() {
+      document.getElementById('modal-privacidad').classList.add('oculto');
+    }
+
+    function rechazarPrivacidad() {
+      document.querySelector('.modal-body').innerHTML = `
+        <p style="text-align: center; padding: 40px 20px; font-size: 16px; color: #13343b;">
+          <strong>Debes aceptar nuestra Política de Privacidad para continuar usando el sitio.</strong>
+        </p>
+      `;
+      document.querySelector('.btn-rechazar').style.display = 'none';
+    }

@@ -107,6 +107,26 @@
   </footer>
 
   <script>
+    document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.add-cart');
+  if (!btn) return;
+
+  const id = btn.dataset.id;
+  const nombre = btn.dataset.nombre;
+  const precio = Number(btn.dataset.precio);
+  const imagen = btn.dataset.imagen || '';
+  const color = btn.dataset.color || '';
+
+  const cart = readCart();
+  const i = cart.findIndex(p => p.id === id);
+
+  if (i >= 0) cart[i].qty += 1;
+  else cart.push({ id, nombre, precio, qty: 1, imagen, color });
+  
+  writeCart(cart);
+  toast(`${nombre} añadido al carrito `);
+});
+
     const money = n => new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(n);
     const CART_KEY = 'kava_cart';
     const readCart = () => {
@@ -206,10 +226,10 @@
       const pay = document.createElement('a');
 pay.className = 'pay';
 pay.textContent = 'Finalizar compra';
-pay.href = 'checkout.html';   // abre el checkout
-pay.target = '_blank';        // en otra pestaña
-pay.rel = 'noopener';         // seguro
-pay.style.textDecoration = 'none'; // quita subrayado (para que se vea como botón)
+pay.href = 'checkout.html';   
+pay.target = '_blank';        
+pay.rel = 'noopener';         
+pay.style.textDecoration = 'none'; 
 
       const grid = document.createElement('div');
       grid.className = 'cart';
