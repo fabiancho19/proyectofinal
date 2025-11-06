@@ -182,6 +182,7 @@ const readCart = () => {
 };
 const writeCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart));
 
+
 /* Enganche: al crear cada tarjeta, añadimos al carrito el ítem pulsado */
 (function hookAddButtons(){
   const grid = document.getElementById('grid-productos');
@@ -234,9 +235,39 @@ const writeCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart))
       document.querySelector('.modal-body').innerHTML = `
         <p style="text-align: center; padding: 40px 20px; font-size: 16px; color: #13343b;">
           <strong>Debes aceptar nuestra Política de Privacidad para continuar usando el sitio.</strong>
-        </p>
-      `;
+        </p>`;
       document.querySelector('.btn-rechazar').style.display = 'none';
     }
 const swatches = document.querySelectorAll('.swatches');
 
+// ===== ZOOM EN FIGURES CON CLASS zoom-wrap =====
+document.addEventListener('pointerdown', e => {
+  const wrap = e.target.closest('.zoom-wrap');
+  if (!wrap) return;
+
+  wrap.classList.toggle('zoomed');
+});
+
+document.addEventListener('mousemove', e => {
+  const wrap = e.target.closest('.zoom-wrap.zoomed');
+  if (!wrap) return;
+
+  const img = wrap.querySelector('img');
+  const rect = wrap.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width * 100;
+  const y = (e.clientY - rect.top) / rect.height * 100;
+  img.style.transformOrigin = `${x}% ${y}%`;
+});
+
+// En móvil (mantiene zoom mientras tocas)
+document.addEventListener('touchmove', e => {
+  const wrap = e.target.closest('.zoom-wrap.zoomed');
+  if (!wrap) return;
+
+  const img = wrap.querySelector('img');
+  const rect = wrap.getBoundingClientRect();
+  const touch = e.touches[0];
+  const x = (touch.clientX - rect.left) / rect.width * 100;
+  const y = (touch.clientY - rect.top) / rect.height * 100;
+  img.style.transformOrigin = `${x}% ${y}%`;
+}, { passive: true });

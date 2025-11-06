@@ -41,7 +41,7 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
   display:flex; flex-direction:column; align-items:center; gap:14px;
 }
 #menu-hamb #nav a{
-  color:#fff; text-decoration:none; letter-spacing:.12em; font-size:18px;
+  color:rgb(255,255,255,.35); text-decoration:none; letter-spacing:.12em; font-size:18px;
 }
 
 #hamburger:focus-visible, #menu-hamb #nav a:focus-visible{
@@ -168,7 +168,7 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
   display: block;            
   min-height: var(--mh, 64px);
   padding-inline: 8px;
-
+}
 #buscador-form{
   position: absolute;
   right: 12px;
@@ -199,8 +199,6 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 @media (max-width: 420px){
   #buscador{ inline-size: 160px }
 }
-}
-
 section[id]{ scroll-margin-top: 100px } 
 
 .editorial{
@@ -544,4 +542,119 @@ section[id]{ scroll-margin-top: 100px }
 
 .add-cart:hover {
   background-color: #333;
+}
+/* correcion mini-header responsivo*/
+/* ===== SOLO MÓVIL ===== */
+@media (max-width: 768px){
+
+  /* 1) Convertimos la barra superior en flex (cubre header o tus clases comunes) */
+  header, .header, .topbar, .top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* 2) El carrito ya no es absolute en móvil */
+  #carrito-link.cart-link{
+    position: static !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
+    display: inline-flex;
+    width: 36px; height: 36px;      /* área táctil cómoda */
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    order: 1;                        /* va justo después del menú (order:0 por defecto) */
+    margin-left: 8px;                /* separarlo del menú */
+    z-index: 10;
+  }
+
+  /* 3) Orden de los demás elementos */
+  .brand{ 
+    order: 2;                        
+    white-space: nowrap;
+    min-width: fit-content;
+  }
+
+  #buscador-form{
+    order: 3;                        /* buscador al final */
+    flex: 1;                         /* ocupa el espacio restante sin montarse */
+    min-width: 120px;
+  }
+}
+/* ===== SOLO MÓVIL ===== */
+@media (max-width: 768px){
+
+  /* Header en modo layout */
+  header, .header, .topbar, .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    position: relative;
+    z-index: 4000; /* Siempre por encima del overlay */
+  }
+
+  /* Carrito va junto al menú */
+  #carrito-link.cart-link{
+    position: relative !important;
+    transform: none !important;
+    margin-left: 10px;
+    order: 1;
+    z-index: 4500; /* Más arriba aún */
+  }
+
+  /* KAVA centrado */
+  .brand{
+    order: 2;
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Buscador al final, adaptándose al espacio */
+  #buscador-form{
+    order: 3;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  /* === CLAVE: Cuando el menú está abierto (details open), NO tapar el header === */
+  #menu-hamb[open] {
+    z-index: 2000; /* menú por debajo del header */
+  }
+
+  #menu-hamb[open] header,
+  #menu-hamb[open] .header{
+    z-index: 5000; /* header por encima */
+  }
+}
+/* Imagen se puede salir de la tarjeta */
+.zoom-wrap {
+  position: relative;
+  overflow: visible;   /* <-- Ahora puede sobresalir ✨ */
+  cursor: zoom-in;
+}
+
+.zoom-wrap img {
+  transition: transform .35s ease, filter .35s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Al hacer zoom */
+.zoom-wrap.zoomed img {
+  transform: scale(2.85);    /* Ajusta el nivel de salida */
+  filter: brightness(1.08);
+  cursor: zoom-out;
+}
+
+/* Añadimos una sombra de lujo cuando sobresale */
+.zoom-wrap.zoomed {
+  z-index: 50;               /* por encima de las demás tarjetas */
+}
+
+.zoom-wrap.zoomed img {
+  position: relative;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.28); /* sombra elegante */
 }
