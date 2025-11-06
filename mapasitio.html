@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa del Sitio — KAVA</title>
+
+  <link rel="stylesheet" href="stilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    main {
+      max-width: 900px;
+      margin: 120px auto 40px auto;
+      padding: 20px;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    header.page-head {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    header.page-head h1 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #13343b;
+    }
+
+    header.page-head p {
+      color: #626c71;
+      font-size: 16px;
+    }
+
+    section {
+      margin-bottom: 45px;
+    }
+
+    section h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      color: #13343b;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin: 8px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #13343b;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 25px 0;
+      text-align: center;
+      background: #fffffd;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    footer nav a {
+      margin: 0 15px;
+      color: #13343b;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 15px;
+      color: #626c71;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER ORIGINAL DE KAVA -->
+  <header id="mini-header" aria-label="Cabecera">
+    <details id="menu-hamb">
+      <summary id="hamburger" aria-label="Abrir menú">☰</summary>
+      <nav id="nav" aria-label="Navegación principal">
+        <ul role="list">
+          <li><a href="index.html#app">Inicio</a></li>
+          <li><a href="index.html#novedades">Novedades</a></li>
+          <li><a href="login.html">Iniciar sesión</a></li>
+          <li><a href="index.html#hombres">Hombres</a></li>
+          <li><a href="index.html#mujeres">Mujeres</a></li>
+          <li><a href="index.html#contacto">Contáctanos</a></li>
+        </ul>
+      </nav>
+    </details>
+
+    <span class="brand">KAVA</span>
+
+    <a id="carrito-link" class="cart-link" href="carrito.html" target="_blank" title="Carrito">🛒</a>
+
+    <form id="buscador-form" role="search" aria-label="Buscar productos" action="index.html#novedades">
+      <label for="buscador" hidden>Buscar</label>
+      <input id="buscador" name="q" type="search" placeholder="Buscar…" autocomplete="off"/>
+    </form>
+  </header>
+
+  <!-- CONTENIDO DEL MAPA DEL SITIO -->
+  <main>
+    <header class="page-head">
+      <h1>Mapa del Sitio</h1>
+      <p>Navegación completa del sitio web KAVA</p>
+    </header>
+
+    <section>
+      <h2>Páginas Principales</h2>
+      <ul>
+        <li><a href="index.html#app">Inicio</a></li>
+        <li><a href="index.html#novedades">Novedades</a></li>
+        <li><a href="index.html#hombres">Hombres</a></li>
+        <li><a href="index.html#mujeres">Mujeres</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="login.html">Iniciar Sesión</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Información Legal</h2>
+      <ul>
+        <li><a href="index.html#modal-privacidad">Política de Privacidad</a></li>
+        <li><a href="index.html#modal-privacidad">Política de Datos</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Elementos Internos</h2>
+      <ul>
+        <li><a href="index.html#buscador">Buscador</a></li>
+        <li><a href="index.html#grid-productos">Catálogo de Productos</a></li>
+        <li><a href="index.html#menu-hamb">Menú Hamburguesa</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- FOOTER ELEGANTE SIN DIV -->
+  <footer>
+    <nav>
+      <a href="index.html#modal-privacidad">Política de Datos</a>
+      <a href="index.html#contacto">Contacto</a>
+      <a href="mapa_sitio.html">Mapa del Sitio</a>
+    </nav>
+
+    <small>© 2025 KAVA — Todos los derechos reservados.</small>
+  </footer>
+
+</body>
+</html>
