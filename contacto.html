@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — KAVA</title>
+
+  <link rel="stylesheet" href="stilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #fffffd;
+      font-family: "Cormorant Garamond", serif;
+      color: #13343b;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 130px auto 50px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    p.sub {
+      text-align: center;
+      color: #626c71;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    /* FORMULARIO */
+    form.contacto-form label {
+      display: block;
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    form.contacto-form input,
+    form.contacto-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+      font-size: 16px;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    form.contacto-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    form.contacto-form button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    form.contacto-form button:hover {
+      background: #333;
+    }
+
+    /* MAPA */
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    /* REDES */
+    ul.redes {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    ul.redes li {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    ul.redes a {
+      color: #13343b;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    ul.redes a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 25px 0;
+      text-align: center;
+      background: #fffffd;
+    }
+
+    footer nav a {
+      margin: 0 15px;
+      color: #13343b;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 15px;
+      color: #626c71;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER KAVA -->
+  <header id="mini-header" aria-label="Cabecera">
+    <details id="menu-hamb">
+      <summary id="hamburger">☰</summary>
+      <nav id="nav">
+        <ul role="list">
+          <li><a href="index.html#app">Inicio</a></li>
+          <li><a href="index.html#novedades">Novedades</a></li>
+          <li><a href="login.html">Iniciar sesión</a></li>
+          <li><a href="index.html#hombres">Hombres</a></li>
+          <li><a href="index.html#mujeres">Mujeres</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+        </ul>
+      </nav>
+    </details>
+
+    <span class="brand">KAVA</span>
+
+    <a id="carrito-link" class="cart-link" href="carrito.html" target="_blank">🛒</a>
+
+    <form id="buscador-form" action="index.html#novedades">
+      <input id="buscador" name="q" type="search" placeholder="Buscar…"/>
+    </form>
+  </header>
+
+  <!-- CONTENIDO DE CONTACTO -->
+  <main>
+    <h1>Contáctanos</h1>
+    <p class="sub">Estamos aquí para ayudarte. Escríbenos o visítanos.</p>
+
+    <!-- FORMULARIO -->
+    <section>
+      <h2>Formulario de Contacto</h2>
+
+      <form class="contacto-form" action="#" method="POST">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" name="nombre" required>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+
+    <!-- MAPA -->
+    <section>
+      <h2>Ubicación</h2>
+
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7351686920857!2d-74.081749!3d4.609710!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99e29c0f89f3%3A0x8074c7f4c21917f!2sBogotá%20Centro!5e0!3m2!1ses!2sco!4v1700000000000"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </section>
+
+    <!-- REDES SOCIALES -->
+    <section>
+      <h2>Redes Sociales</h2>
+
+      <ul class="redes">
+        <li><a href="#" target="_blank">Instagram</a></li>
+        <li><a href="#" target="_blank">Facebook</a></li>
+        <li><a href="#" target="_blank">TikTok</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- FOOTER ELEGANTE SIN DIV -->
+  <footer>
+    <nav>
+      <a href="index.html#modal-privacidad">Política de Datos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="mapa_sitio.html">Mapa del Sitio</a>
+    </nav>
+
+    <small>© 2025 KAVA — Todos los derechos reservados.</small>
+  </footer>
+
+</body>
+</html>
