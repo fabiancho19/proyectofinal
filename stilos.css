@@ -17,7 +17,7 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
   pointer-events:none; user-select:none;
 }
 
-#menu-hamb{ justify-self:start; margin-left:12px; position:relative }
+#menu-hamb{ justify-self:start; margin-left:12px; position:fixed }
 #hamburger{
   list-style:none; -webkit-user-select:none; user-select:none;
   font-size:28px; line-height:1; color:#fff; background:transparent;
@@ -27,7 +27,7 @@ body{font-family:"Cormorant Garamond",serif; height:200vh}
 
 #menu-hamb > #nav{
   position: left; left:0; right:0; top:var(--mh);
-  background:rgba(0,0,0,0.35); backdrop-filter: blur(6px);
+  background:rgba(255, 248, 248, 0.858); backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255,255,255,.18);
   max-height: calc(100vh - var(--mh)); overflow:auto;
   opacity:0; translate: 0 -8px; pointer-events:none;
@@ -556,7 +556,7 @@ section[id]{ scroll-margin-top: 100px }
 
   /* 2) El carrito ya no es absolute en móvil */
   #carrito-link.cart-link{
-    position: static !important;
+    position: fixed !important;
     right: auto !important;
     left: auto !important;
     transform: none !important;
@@ -579,7 +579,7 @@ section[id]{ scroll-margin-top: 100px }
   #buscador-form{
     order: 3;                        /* buscador al final */
     flex: 1;                         /* ocupa el espacio restante sin montarse */
-    min-width: 120px;
+    min-width: 100px;
   }
 }
 /* ===== SOLO MÓVIL ===== */
@@ -599,7 +599,7 @@ section[id]{ scroll-margin-top: 100px }
   #carrito-link.cart-link{
     position: relative !important;
     transform: none !important;
-    margin-left: 10px;
+    margin-left: 60px;
     order: 1;
     z-index: 4500; /* Más arriba aún */
   }
@@ -616,7 +616,7 @@ section[id]{ scroll-margin-top: 100px }
   #buscador-form{
     order: 3;
     flex: 1;
-    min-width: 120px;
+    min-width: 90px;
   }
 
   /* === CLAVE: Cuando el menú está abierto (details open), NO tapar el header === */
